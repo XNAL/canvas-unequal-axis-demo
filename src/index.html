@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    #main {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      max-width: 600px;
+      height: 400px;
+    }
+  </style>
+</head>
+<body>
+  <div id="main"></div>
+  <script src="https://cdn.bootcss.com/echarts/4.1.0.rc2/echarts-en.common.min.js"></script>
+  <script>
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('main'));
+
+    // 指定图表的配置项和数据
+    var option = {
+      title : {
+          text: 'echarts不等间距坐标轴demo',
+          x: 'center',
+          align: 'right'
+      },
+      xAxis: {
+        min: 0,
+        max: 15,
+        interval: function (index, value) {
+          return value === 0 || value === 15
+        },
+        nameLocation: 'middle',
+        nameTextStyle: {
+          color: '#666'
+        },
+        axisLine: {
+          onZero: false,
+          lineStyle: {
+            color: '#C4C7D5'
+          }
+        },
+        axisLabel: {
+          fontSize: 10,
+          color: '#8A8FAB',
+          margin: 7,
+          align: 'center',
+          formatter: '{value}'
+        },
+        splitLine: {
+          show: false
+        },
+        axisTick: {
+          show: false
+        }
+      },
+      yAxis: {
+        type: 'value',
+        nameTextStyle: {
+          fontSize: 12,
+          color: '#43496A',
+          padding: [0, 0, 20, 45]
+        },
+        scale: true,
+        splitLine: {
+          show: false,
+          lineStyle: {
+            color: '#E4E4E4',
+            type: 'solid'
+          }
+        },
+        axisLine: {
+          show: true,
+          lineStyle: {
+            color: '#C4C7D5'
+          }
+        },
+        axisLabel: {
+          fontSize: 10,
+          color: '#8A8FAB'
+        },
+        axisTick: {
+          show: false
+        }
+      },
+      series: [{
+          symbolSize: 20,
+          data: [
+              [10.0, 8.04],
+              [8.0, 6.95],
+              [13.0, 7.58],
+              [9.0, 8.81],
+              [11.0, 8.33],
+              [14.0, 9.96],
+              [6.0, 7.24],
+              [4.0, 4.26],
+              [12.0, 10.84],
+              [7.0, 4.82],
+              [5.0, 5.68]
+          ],
+          type: 'scatter',
+          markLine : {
+            silent: true,
+            symbol: ['none', 'none'],
+            lineStyle: {
+              normal: {
+                opacity: 0
+              }
+            },
+            label: {
+              show: true,
+              position: 'start',
+              fontSize: 10,
+              color: '#8A8FAB',
+              padding: 2,
+            },
+            data : [
+                {
+                  xAxis: 1
+                },
+                {
+                  xAxis: 3
+                },
+                {
+                  xAxis: 8
+                },
+                {
+                  xAxis: 12
+                }
+            ]
+          }
+          }]
+    };
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+  </script>
+</body>
+</html>
