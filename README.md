@@ -16,7 +16,7 @@
 
 ## 效果图
 
-![echarts demo](http://p1hywzeee.bkt.clouddn.com/echarts-demo/echarts-unequal-axis-demo.png)
+![echarts demo](https://github.com/XNAL/echarts-unequal-axis-demo/blob/master/screenshorts/echarts-unequal-axis-demo.png)
 
 ## 代码
 
